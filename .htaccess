@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteRule ^album/([0-9]+)$ fotografije.php?album=$1 [QSA]
+RewriteRule ^fotografija/([0-9]+)$ fotografija.php?photo=$1 [QSA]
+RewriteRule ^upload$ upload.php [QSA]
+RewriteRule ^tagovi$ tagovi.php [QSA]
+RewriteRule ^korisnici$ korisnici.php [QSA]
+RewriteRule ^event/new$ new.php [QSA]
