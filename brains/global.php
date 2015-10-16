@@ -1,18 +1,9 @@
 <?php
-/*
-	#eventmaping
-
-	Project started: 23.09.2014
-
-	Dev: Mirza Ohranovic
-
-	Motivation: Mirza Ohranovic
-*/
 	session_start();
 
 	$debug = true;
 
-	if($debug) { 
+	if($debug) {
 		error_reporting(E_ALL);
  		ini_set('display_errors', 1);
 	}

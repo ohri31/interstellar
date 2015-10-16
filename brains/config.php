@@ -1,14 +1,11 @@
 <?php
-	
-	$url_home = 'http://192.241.174.116/beta/ecommerc/';
-	$dir_root = '/var/www/html/beta/ecommerc/';
 
-	$media_url = "http://192.241.174.116/media/";
-	$media_path = "/var/www/html/media/";
+	$url_home = 'http://localhost/duckapi/interstellar/';
+	$dir_root = '/var/www/html/duckapi/interstellar/';
 
 	$db_host = 'localhost';
 	$db_user = 'root';
-	$db_pass = 'kasaba1905';
-	$db_name = 'eventmaping';
-	
+	$db_pass = 'ohriohri';
+	$db_name = 'mitter';
+
 ?>
