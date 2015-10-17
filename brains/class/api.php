@@ -212,6 +212,7 @@
 							$tajmstemp = (string)$tajmstemp;
 							$vremena['vrijeme'] 			= $tajmstemp;
 							$vremena_id['vrijeme_id']		= $t['id'];
+
 							$list['mitter'][$i]['vremena'][] = $vremena;
 							$list['mitter'][$i]['vremena_id'][] = $vremena_id;
 						}
@@ -295,15 +296,31 @@
 					$list['user_invited']['email'] 	= $ko_je_pozvao['email'];
 
 					$get_lokacije = $db->query("SELECT id, lokacija FROM m_mitter_lokacija WHERE mitter = {$mitter}");
+
+					$lokacije = array();
+					$lokacije_id = array();
+
 					while($m = $get_lokacije->fetch_assoc()){
-						$list['lokacije']['lokacija'] 			= $m['lokacija'];
-						$list['lokacije_id']['lokacija_id'] 	= $m['id'];
+						$lokacije['lokacija']					= $m['lokacija'];
+						$lokacije_id['lokacija_id']		= $m['id'];
+
+						$list['lokacije']['lokacije'][] 				= $lokacije;
+						$list['lokacije_id']['lokacije_id'][] 	= $lokacije_id;
 					}
 
 					$get_vrijeme = $db->query("SELECT id, sati, minute, datum FROM m_mitter_vrijeme WHERE mitter = {$mitter}");
+
+					$vremena = array();
+					$vremena_id = array();
+
 					while($t = $get_vrijeme->fetch_assoc()){
-						$list['vremena']['vrijeme'] 			= '"'.strtotime($t['datum']." ".$t['sati'].":".$t['minute']).'"';
-						$list['vremena_id']['vrijeme_id']		= $t['id'];
+						$tajmstemp = strtotime($t['datum']." ".$t['sati'].":".$t['minute']);
+						$tajmstemp = (string)$tajmstemp;
+						$vremena['vrijeme'] 			= $tajmstemp;
+						$vremena_id['vrijeme_id']		= $t['id'];
+
+						$list['vremena']['vremena'] 			= $vremena;
+						$list['vremena_id']['vremena_id']		= $vremena_id;
 					}
 
 			print_r(json_encode($list, JSON_PRETTY_PRINT));
