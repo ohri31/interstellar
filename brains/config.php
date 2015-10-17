@@ -8,6 +8,8 @@
 	$db_host = 'localhost';
 	$db_user = 'eestecsa_jf2012';
 	$db_pass = 'Prozor0U';
+	/*$db_user = 'root';
+	$db_pass = 'ohriohri';*/
 	$db_name = 'mitter';
 
 ?>

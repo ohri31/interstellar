@@ -154,19 +154,32 @@
 				while($row = $inivited_to->fetch_assoc()){
 						$list['mitter'][$i]['mitter'] = $row['mitter'];
 
+						$lokacije = array();
+						$lokacije_id = array();
+
 						$get_lokacije = $db->query("SELECT id, lokacija FROM m_mitter_lokacija WHERE mitter = {$row['mitter']}");
 						while($m = $get_lokacije->fetch_assoc()){
-							$list['mitter'][$i]['lokacije']['lokacija'][] 			= $m['lokacija'];
-							$list['mitter'][$i]['lokacije_id']['lokacija_id'][] 	= $m['id'];
+							$lokacije['lokacija']			= $m['lokacija'];
+							$lokacije_id['lokacija_id']	= $m['id'];
+
+							$list['mitter'][$i]['lokacije'][] 		= $lokacije;
+							$list['mitter'][$i]['lokacije_id'][] 	= $lokacije_id;
 						}
 
 						$get_vrijeme = $db->query("SELECT id, sati, minute, datum FROM m_mitter_vrijeme WHERE mitter = {$row['mitter']}");
+
+						$vremena = array();
+						$vremena_id = array();
+
 						while($t = $get_vrijeme->fetch_assoc()){
 							$tajmstemp = strtotime($t['datum']." ".$t['sati'].":".$t['minute']);
 							$tajmstemp = (string)$tajmstemp;
-							$list['mitter'][$i]['vremena']['vrijeme'][] 			= $tajmstemp;
-							$list['mitter'][$i]['vremena_id']['vrijeme_id'][]	= $t['id'];
+							$vremena['vrijeme'] 			= $tajmstemp;
+							$vremena_id['vrijeme_id']		= $t['id'];
+							$list['mitter'][$i]['vremena'][] = $vremena;
+							$list['mitter'][$i]['vremena_id'][] = $vremena_id;
 						}
+
 						$i++;
 				}
 
@@ -177,19 +190,32 @@
 				while($row = $my_mitters->fetch_assoc()){
 						$list['mitter'][$i]['mitter'] = $row['mitter'];
 
+						$lokacije = array();
+						$lokacije_id = array();
+
 						$get_lokacije = $db->query("SELECT id, lokacija FROM m_mitter_lokacija WHERE mitter = {$row['mitter']}");
 						while($m = $get_lokacije->fetch_assoc()){
-							$list['mitter'][$i]['lokacije']['lokacija'][] 			= $m['lokacija'];
-							$list['mitter'][$i]['lokacije_id']['lokacija_id'][] 	= $m['id'];
+							$lokacije['lokacija']			= $m['lokacija'];
+							$lokacije_id['lokacija_id']	= $m['id'];
+
+							$list['mitter'][$i]['lokacije'][] 		= $lokacije;
+							$list['mitter'][$i]['lokacije_id'][] 	= $lokacije_id;
 						}
 
 						$get_vrijeme = $db->query("SELECT id, sati, minute, datum FROM m_mitter_vrijeme WHERE mitter = {$row['mitter']}");
+
+						$vremena = array();
+						$vremena_id = array();
+
 						while($t = $get_vrijeme->fetch_assoc()){
 							$tajmstemp = strtotime($t['datum']." ".$t['sati'].":".$t['minute']);
 							$tajmstemp = (string)$tajmstemp;
-							$list['mitter'][$i]['vremena']['vrijeme'][] 			= $tajmstemp;
-							$list['mitter'][$i]['vremena_id']['vrijeme_id'][]	= $t['id'];
+							$vremena['vrijeme'] 			= $tajmstemp;
+							$vremena_id['vrijeme_id']		= $t['id'];
+							$list['mitter'][$i]['vremena'][] = $vremena;
+							$list['mitter'][$i]['vremena_id'][] = $vremena_id;
 						}
+
 						$i++;
 				}
 
