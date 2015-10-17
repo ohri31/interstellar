@@ -163,6 +163,7 @@
 						$get_vrijeme = $db->query("SELECT id, sati, minute, datum FROM m_mitter_vrijeme WHERE mitter = {$row['mitter']}");
 						while($t = $get_vrijeme->fetch_assoc()){
 							$tajmstemp = strtotime($t['datum']." ".$t['sati'].":".$t['minute']);
+							$tajmstemp = (string)$tajmstemp;
 							$list['mitter'][$i]['vremena']['vrijeme'] 			= $tajmstemp;
 							$list['mitter'][$i]['vremena_id']['vrijeme_id']	= $t['id'];
 						}
@@ -185,6 +186,7 @@
 						$get_vrijeme = $db->query("SELECT id, sati, minute, datum FROM m_mitter_vrijeme WHERE mitter = {$row['mitter']}");
 						while($t = $get_vrijeme->fetch_assoc()){
 							$tajmstemp = strtotime($t['datum']." ".$t['sati'].":".$t['minute']);
+							$tajmstemp = (string)$tajmstemp;
 							$list['mitter'][$i]['vremena']['vrijeme'] 			= $tajmstemp;
 							$list['mitter'][$i]['vremena_id']['vrijeme_id']	= $t['id'];
 						}
