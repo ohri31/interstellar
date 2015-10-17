@@ -29,5 +29,28 @@
       $data = $_GET;
       $api->add_mitter($data);
     break;
+
+    case 'list_mitter':
+      $api      = new Api;
+      $invites  = (int)$_GET['invites'];
+      $me       = (int)$_GET['me'];
+      $api->list_mitter($invites, $me);
+    break;
+
+    case 'pick_mitter':
+      $api      = new Api;
+      $who      = (int)$_GET['who'];
+      $mitter   = (int)$_GET['mitter'];
+      $lokacija = $_GET['lokacija'];
+      $vrijeme  = $_GET['vrijeme'];
+      $api->pick_mitter($who, $mitter, $vrijeme, $lokacija);
+    break;
+
+    case 'mitter':
+      $api      = new Api;
+      $mitter   = $_GET['mitter'];
+      $who      = $_GET['who'];
+      $api->show_mitter($mitter, $who);
+    break;
   }
 ?>
