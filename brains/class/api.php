@@ -152,7 +152,7 @@
 									AND m_mitter_invites.status = 0");
 				$i = 0;
 				while($row = $inivited_to->fetch_assoc()){
-						$list['mitter'][$i]['mitter'] = $row['mitter'];
+						$list['mitteri'][$i]['mitter'] = $row['mitter'];
 
 						$lokacije = array();
 						$lokacije_id = array();
@@ -162,8 +162,8 @@
 							$lokacije['lokacija']			= $m['lokacija'];
 							$lokacije_id['lokacija_id']	= $m['id'];
 
-							$list['mitter'][$i]['lokacije'][] 		= $lokacije;
-							$list['mitter'][$i]['lokacije_id'][] 	= $lokacije_id;
+							$list['mitteri'][$i]['lokacije'][] 		= $lokacije;
+							$list['mitteri'][$i]['lokacije_id'][] 	= $lokacije_id;
 						}
 
 						$get_vrijeme = $db->query("SELECT id, sati, minute, datum FROM m_mitter_vrijeme WHERE mitter = {$row['mitter']}");
@@ -176,8 +176,8 @@
 							$tajmstemp = (string)$tajmstemp;
 							$vremena['vrijeme'] 			= $tajmstemp;
 							$vremena_id['vrijeme_id']		= $t['id'];
-							$list['mitter'][$i]['vremena'][] = $vremena;
-							$list['mitter'][$i]['vremena_id'][] = $vremena_id;
+							$list['mitteri'][$i]['vremena'][] = $vremena;
+							$list['mitteri'][$i]['vremena_id'][] = $vremena_id;
 						}
 
 						$i++;
@@ -188,7 +188,7 @@
 				$my_mitters = $db->query("SELECT m_mitter.id as mitter FROM m_mitter WHERE m_mitter.who = {$me}");
 				$i = 0;
 				while($row = $my_mitters->fetch_assoc()){
-						$list['mitter'][$i]['mitter'] = $row['mitter'];
+						$list['mitteri'][$i]['mitter'] = $row['mitter'];
 
 						$lokacije = array();
 						$lokacije_id = array();
@@ -198,8 +198,8 @@
 							$lokacije['lokacija']			= $m['lokacija'];
 							$lokacije_id['lokacija_id']	= $m['id'];
 
-							$list['mitter'][$i]['lokacije'][] 		= $lokacije;
-							$list['mitter'][$i]['lokacije_id'][] 	= $lokacije_id;
+							$list['mitteri'][$i]['lokacije'][] 		= $lokacije;
+							$list['mitteri'][$i]['lokacije_id'][] 	= $lokacije_id;
 						}
 
 						$get_vrijeme = $db->query("SELECT id, sati, minute, datum FROM m_mitter_vrijeme WHERE mitter = {$row['mitter']}");
@@ -213,8 +213,8 @@
 							$vremena['vrijeme'] 			= $tajmstemp;
 							$vremena_id['vrijeme_id']		= $t['id'];
 
-							$list['mitter'][$i]['vremena'][] = $vremena;
-							$list['mitter'][$i]['vremena_id'][] = $vremena_id;
+							$list['mitteri'][$i]['vremena'][] = $vremena;
+							$list['mitteri'][$i]['vremena_id'][] = $vremena_id;
 						}
 
 						$i++;
