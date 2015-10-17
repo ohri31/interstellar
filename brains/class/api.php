@@ -246,7 +246,7 @@
 			$list = array();
 
 			/* Check status */
-			$status = $db->query("SELECT status FROM m_miter_invites WHERE mitter = {$mitter} AND id = {$invite}");
+			$status = $db->query("SELECT status FROM m_mitter_invites WHERE mitter = {$mitter} AND id = {$invite}");
 			if($status->num_rows > 0){
 				$check = $status->fetch_assoc();
 				if($check['status'] == 1) echo "0";
