@@ -283,8 +283,8 @@
 			$status = $db->query("SELECT status FROM m_mitter_invites WHERE mitter = {$mitter} AND id = {$invite}");
 			if($status->num_rows > 0){
 				$check = $status->fetch_assoc();
-				if($check['status'] == 1) echo "0";
-			}else echo "0";
+				if($check['status'] == 1) die("0");
+			};
 
 					$list['mitter'] = $mitter;
 
@@ -304,8 +304,8 @@
 						$lokacije['lokacija']					= $m['lokacija'];
 						$lokacije_id['lokacija_id']		= $m['id'];
 
-						$list['lokacije']['lokacije'][] 				= $lokacije;
-						$list['lokacije_id']['lokacije_id'][] 	= $lokacije_id;
+						$list['lokacije'][] 				= $lokacije;
+						$list['lokacije_id'][] 	= $lokacije_id;
 					}
 
 					$get_vrijeme = $db->query("SELECT id, sati, minute, datum FROM m_mitter_vrijeme WHERE mitter = {$mitter}");
@@ -319,8 +319,8 @@
 						$vremena['vrijeme'] 			= $tajmstemp;
 						$vremena_id['vrijeme_id']		= $t['id'];
 
-						$list['vremena']['vremena'] 			= $vremena;
-						$list['vremena_id']['vremena_id']		= $vremena_id;
+						$list['vremena'][] 			= $vremena;
+						$list['vremena_id'][]		= $vremena_id;
 					}
 
 			print_r(json_encode($list, JSON_PRETTY_PRINT));

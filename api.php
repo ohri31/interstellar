@@ -49,8 +49,8 @@
     case 'mitter':
       $api      = new Api;
       $mitter   = $_GET['mitter'];
-      $who      = $_GET['who'];
-      $api->show_mitter($mitter, $who);
+      $invite   = $_GET['invite'];
+      $api->show_mitter($mitter, $invite);
     break;
   }
 ?>
